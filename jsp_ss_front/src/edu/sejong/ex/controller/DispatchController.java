@@ -1,4 +1,4 @@
-package edu.sejong.ex;
+package edu.sejong.ex.controller;
 
 import java.io.IOException;
 

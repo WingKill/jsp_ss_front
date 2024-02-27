@@ -1,8 +1,7 @@
-package edu.sejong.ex;
+package edu.sejong.ex.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.sejong.ex.MemberDto;
 import edu.sejong.ex.service.MemberCommand;
 import edu.sejong.ex.service.MemberDeleteCommand;
 import edu.sejong.ex.service.MemberInsertCommand;
@@ -68,7 +68,8 @@ public class FrontController extends HttpServlet {
 		
 		MemberServiceImpl service = null;
 		MemberCommand mCommand = null;
-
+		String viewPage = null;
+		
 		if(command.equals("/insert.do")) {			
 			System.out.println("데이터 추가 처리");
 			System.out.println("==========");
@@ -130,14 +131,17 @@ public class FrontController extends HttpServlet {
 			writer.println("</body></html>");
 			
 		}else if(command.equals("/list.do")) {			
-			System.out.println("데이터 삭제 처리");
+			System.out.println("모든 멤버 리스트 보여주기");
 			System.out.println("==========");
 			mCommand = new MemberListCommand();
 			mCommand.execute(request, response);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/member_list.jsp");
+			viewPage = "member_list.jsp";			
+		}	
+		
+		if(viewPage != null) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 			dispatcher.forward(request, response);
-			
-		}		
+		}
 	}
 }

@@ -29,7 +29,6 @@ public class MemberDao {
 	public List<MemberDto> selectMembers() {
 		List<MemberDto> memberList = new ArrayList<>();
 		
-		int result = MemberDao.MEMBER_LOGIN_FAIL; // 0
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -47,9 +46,8 @@ public class MemberDao {
 				
 				MemberDto member = new MemberDto(id,pw,email,address);
 				memberList.add(member);
-				result++;
-				System.out.println(result + "개의 리스트가 담깁니다.");
-			}				
+			}
+			System.out.println(memberList.size() + "개의 데이터가 있습니다.");
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {

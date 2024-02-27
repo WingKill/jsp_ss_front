@@ -21,5 +21,16 @@
 	<a href="${pageContext.request.contextPath}/member_delete.jsp">delete</a>
 	<hr/>	
 	<a href="list.do">list</a>
+	<hr>
+	<hr>
+	<hr>
+	테스트 링크<br>
+	<a href="${pageContext.request.contextPath}/dept/list.do">dept 리스트 보기</a>	
+	<hr>
+	<a href="${pageContext.request.contextPath}/dept_mvc_insert.jsp">dept 입력창 가기</a>
+	<hr>
+	<a href="dept_mvc_update.jsp">dept 수정창 가기</a>
+	<hr>
+	<a href="dept_mvc_delete.jsp">dept 삭제창 가기</a>	
 </body>
 </html>
